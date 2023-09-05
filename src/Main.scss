@@ -1,10 +1,64 @@
 .mainWrap {
-  margin: auto;
   width: 500px;
+  height: 700px;
+  margin: auto;
   background-color: #b2c6d9;
 
-  .title {
-    font-size: 20px;
-    font-family: bold;
+  .mainNav {
+    height: 50px;
+    .backIcon {
+      margin-top: 20px;
+      margin-left: 20px;
+      height: 25px;
+      float: left;
+    }
+    .searchIcon {
+      margin-top: 20px;
+      margin-right: 20px;
+      height: 25px;
+      float: right;
+    }
+  }
+
+  .mainContent {
+    text-align: center;
+    margin: 0 80px 0 80px;
+
+    .title {
+      margin-top: 150px;
+    }
+    .subTitle {
+      font-size: 16px;
+      color: grey;
+      line-height: 25px;
+    }
+  }
+
+  .submitButton {
+    margin-top: 100px;
+
+    .nameSubmit {
+      height: 48px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+    }
+    .testButton {
+      margin-top: 10px;
+      height: 48px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      display: block;
+      text-align: center;
+      display: block;
+      margin: 10px auto 0;
+      background-color: #fee501;
+    }
   }
 }
