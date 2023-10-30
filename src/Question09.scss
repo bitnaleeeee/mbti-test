@@ -1,0 +1,70 @@
+.mainWrap {
+  width: 500px;
+  height: 700px;
+  margin: auto;
+  background-color: #b2c6d9;
+
+  .mainNav {
+    height: 50px;
+    .backIcon {
+      margin-top: 20px;
+      margin-left: 20px;
+      height: 25px;
+      float: left;
+    }
+    .searchIcon {
+      margin-top: 20px;
+      margin-right: 20px;
+      height: 25px;
+      float: right;
+      cursor: pointer;
+    }
+  }
+
+  .contentsWrap {
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+
+    .contents {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 0;
+      width: 450px;
+      background-color: #ffffff;
+      border-radius: 20px;
+
+      h1 {
+        color: #8898a5;
+        border-bottom: 1px solid #8898a5;
+      }
+      p {
+        line-height: 22px;
+        padding: 20px 10px;
+      }
+      span {
+        font-weight: 700;
+        font-size: 17px;
+      }
+    }
+    .buttonWrap {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        width: 300px;
+        padding: 30px 20px;
+        background-color: #ebebeb;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        border: none;
+      }
+      button:hover {
+        background-color: #fee501;
+        cursor: pointer;
+      }
+    }
+  }
+}
