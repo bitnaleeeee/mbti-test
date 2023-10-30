@@ -1,11 +1,12 @@
 import React from "react";
-import "./Question02.scss";
+import Question from "./question";
+import "./mbtiTest.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-const Question02 = () => {
+const mbtiTest = () => {
   return (
     <div className="mainWrap">
       <div className="mainNav">
@@ -15,23 +16,22 @@ const Question02 = () => {
       </div>
       <div className="contentsWrap">
         <div className="contents">
-          <h1>Q2</h1>
+          <h1>Q1</h1>
           <p>
-            교수님이 짜신 팀플 조가 공지에 올라왔다. 그러나 아무도 단톡방을
-            만들지 않는데...
+            새 학년 새 학기 수업 시간. 이 수업에 팀플이 있다는 걸 알게 되었다.
             <br></br>
-            <span>내가 나설까??</span>
+            <span>이 때 내가 든 생각은?</span>
           </p>
           <div className="buttonWrap">
             <button>
-              '딘톡방 만드는게 뭐가 어렵다고'
+              '새로운 사람 만나는 건 좋지'
               <br></br>
-              <span>바로 만든다</span>
+              <span>괜찮다고 생각한다</span>
             </button>
             <button>
-              '다른 사람이 만들겠지'
+              '팀플 너무 싫어 드랍할 걸...'
               <br></br>
-              <span>만들지 않고 기다린다</span>
+              <span>벌써부터 힘들다고 생각한다</span>
             </button>
           </div>
         </div>
@@ -40,4 +40,4 @@ const Question02 = () => {
   );
 };
 
-export default Question02;
+export default mbtiTest;
