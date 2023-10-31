@@ -90,7 +90,30 @@ const Question = () => {
       "최대한 돌려서 말한다",
     ],
   };
-  return <></>;
+  return (
+    <div className="contentsWrap">
+      <div className="contents">
+        <h1>Q1</h1>
+        <p>
+          {testMbti.question01[0]}
+          <br></br>
+          <span> {testMbti.question01[1]}</span>
+        </p>
+        <div className="buttonWrap">
+          <button>
+            {testMbti.question01[2]}
+            <br></br>
+            <span> {testMbti.question01[3]}</span>
+          </button>
+          <button>
+            {testMbti.question01[4]}
+            <br></br>
+            <span> {testMbti.question01[5]}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Question;

@@ -1,16 +1,28 @@
 import React from "react";
-import "./Main.scss";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import "./Main.scss";
+
+let userName = "";
 
 const Main = () => {
+  const navigate = useNavigate();
+
+  function loginCheck(e) {
+    userName = e.target.value;
+  }
+  const goToTest = () => {
+    userName.length > 0 ? navigate("/test") : alert("이름을 입력해주세요");
+  };
+
   return (
     <div className="mainWrap">
       <div className="mainNav">
-        <FontAwesomeIcon className="backIcon" icon={faChevronLeft} />
+        <FontAwesomeIcon className="mainbackIcon" icon={faChevronLeft} />
         <FontAwesomeIcon className="searchIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
@@ -29,8 +41,9 @@ const Main = () => {
           id="name"
           type="text"
           placeholder="이름을 입력해주세요"
+          onChange={loginCheck}
         />
-        <button className="testButton" type="submit">
+        <button className="testButton" type="submit" onClick={goToTest}>
           테스트하기
           <FontAwesomeIcon icon={faArrowRight} />
         </button>
