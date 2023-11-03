@@ -1,7 +1,9 @@
-let count = 1;
+import { useState } from "react";
+
 const Question = () => {
-  const testMbti = {
-    question1: [
+  const [count, setCount] = useState(0);
+  const testMbti = [
+    [
       "Q1",
       "새 학년 새 학기 수업 시간. 이 수업에 팀플이 있다는 걸 알게 되었다.",
       "이 때 내가 든 생각은?",
@@ -11,7 +13,7 @@ const Question = () => {
       "벌써부터 힘들다고 생각한다",
     ],
 
-    question2: [
+    [
       "Q2",
 
       "교수님이 짜신 팀플 조가 공지에 올라왔다. 그러나 아무도 단톡방을 만들지 않는데...",
@@ -22,7 +24,7 @@ const Question = () => {
       "만들지 않고 기다린다",
     ],
 
-    question3: [
+    [
       "Q3",
 
       "팀플 단톡방이 만들어졌지만, 아무도 인사하지 않는데...",
@@ -33,7 +35,7 @@ const Question = () => {
       "인사 안하고 다른 사람이 인사하면 인사한다",
     ],
 
-    question4: [
+    [
       "Q4",
 
       "  발표 주제를 정하는 시간",
@@ -44,7 +46,7 @@ const Question = () => {
       "다른 사람이 낸 주제를 피드백 해준다",
     ],
 
-    question5: [
+    [
       "Q5",
       "다른 팀원 낸 주제가 우리 발표랑 별로 안 맞는 것 같아",
       "이 때 나의 행동은?",
@@ -54,7 +56,7 @@ const Question = () => {
       "돌려서 말한다",
     ],
 
-    question6: [
+    [
       "Q6",
       " 주제가 정해진 뒤 역할을 분담하는 시간, 역할 분담이 제대로 안되는 것  같은데...",
       "이 때 나의 행동은?",
@@ -64,7 +66,7 @@ const Question = () => {
       "굳이 나서지 않는다",
     ],
 
-    question7: [
+    [
       "Q7",
       "발표자를 정하는 시간",
       "이 때 나의 행동은?",
@@ -74,7 +76,7 @@ const Question = () => {
       "다른 사람이 발표한다고 하길 기다린다",
     ],
 
-    question8: [
+    [
       "Q8",
       "우여곡절 끝에 역할이 모두 분담되었다. 난 발표와 자료조사를 분담하게 되었다.",
       "나에게 주어진 파트는 언제까지 마칠까?",
@@ -84,7 +86,7 @@ const Question = () => {
       "중으로 미룬다",
     ],
 
-    question9: [
+    [
       "Q9",
       "팀플 과제 마감날, 어쩌다보니 나에게 분담된 과제를 제대로 하지 못했다!",
       "이 때 내 생각은?",
@@ -94,7 +96,7 @@ const Question = () => {
       "원인에 대해 생각한다",
     ],
 
-    question10: [
+    [
       "Q10",
       "막판 스퍼트를 내 팀플 과제를 끝냈다. 근데... 팀원의 자료조사 부분이 부족한 것 같다.",
       "이 때 내 생각은?",
@@ -103,41 +105,36 @@ const Question = () => {
       '"이 부분만 조금 수정해주실 수 있나요?"',
       "최대한 돌려서 말한다",
     ],
-  };
-  {
-  }
+  ];
+
   function nextQuestion() {
-    console.log(2);
+    setCount(count + 1);
   }
+
+  //process = [1,4,9,16,25]
   return (
     <div className="contentsWrap">
       <div className="contents">
-        {testMbti.question1 &&
-          testMbti.question1.map((item, idx) => {
-            console.log(item);
-            return (
-              <>
-                <h1 key={idx}>{item}</h1>
-                <p>
-                  {item}
-                  <br></br>
-                  <span> {item}</span>
-                </p>
-                <div className="buttonWrap">
-                  <button onClick={nextQuestion}>
-                    {item}
-                    <br></br>
-                    <span> {item}</span>
-                  </button>
-                  <button onClick={nextQuestion}>
-                    {item}
-                    <br></br>
-                    <span> {item}</span>
-                  </button>
-                </div>
-              </>
-            );
-          })}
+        <>
+          <h1>{testMbti && testMbti[count][0]}</h1>
+          <p>
+            {testMbti && testMbti[count][1]}
+            <br></br>
+            <span> {testMbti && testMbti[count][2]}</span>
+          </p>
+          <div className="buttonWrap">
+            <button onClick={nextQuestion}>
+              {testMbti && testMbti[count][3]}
+              <br></br>
+              <span> {testMbti && testMbti[count][4]}</span>
+            </button>
+            <button onClick={nextQuestion}>
+              {testMbti && testMbti[count][5]}
+              <br></br>
+              <span> {testMbti && testMbti[count][6]}</span>
+            </button>
+          </div>
+        </>
       </div>
     </div>
   );
