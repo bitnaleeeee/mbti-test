@@ -111,7 +111,6 @@ const Question = () => {
     setCount(count + 1);
   }
 
-  //process = [1,4,9,16,25]
   return (
     <div className="contentsWrap">
       <div className="contents">
