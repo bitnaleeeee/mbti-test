@@ -19,8 +19,12 @@ const MbtiTest = () => {
   }
 
   function nextPage() {
+    if (count === 9) {
+      navigate("/result");
+    }
     setCount(count + 1);
   }
+
   return (
     <div className="mainWrap">
       <div className="mainNav">
