@@ -1,7 +1,6 @@
-import { useState } from "react";
-
-const Question = () => {
-  const [count, setCount] = useState(0);
+const Question = (props) => {
+  const { nextPage } = props;
+  const { count } = props;
   const testMbti = [
     [
       "Q1",
@@ -108,7 +107,7 @@ const Question = () => {
   ];
 
   function nextQuestion() {
-    setCount(count + 1);
+    nextPage();
   }
 
   return (
