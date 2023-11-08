@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Question = (props) => {
   const { nextPage } = props;
   const { count } = props;
@@ -8,8 +10,10 @@ const Question = (props) => {
       "이 때 내가 든 생각은?",
       "'새로운 사람 만나는 건 좋지'",
       "괜찮다고 생각한다",
+      "e",
       " '팀플 너무 싫어 드랍할 걸...' ",
       "벌써부터 힘들다고 생각한다",
+      "i",
     ],
 
     [
@@ -19,8 +23,10 @@ const Question = (props) => {
       "내가 나설까??",
       "  '딘톡방 만드는게 뭐가 어렵다고'",
       "바로 만든다",
-      "   '다른 사람이 만들겠지'",
+      "j",
+      " '다른 사람이 만들겠지'",
       "만들지 않고 기다린다",
+      "p",
     ],
 
     [
@@ -30,8 +36,10 @@ const Question = (props) => {
       "내가 먼저 말을 꺼낼까?",
       "'팀플할려면 어차피 친해져야 하잖아'",
       "먼저 나서서 분위기를 푼다",
+      "e",
       "'아무도 인사 안하는데 내가 굳이 ...?'",
       "인사 안하고 다른 사람이 인사하면 인사한다",
+      "i",
     ],
 
     [
@@ -41,8 +49,10 @@ const Question = (props) => {
       "이 때 나의 행동은?",
       " '이것도 괜찮고 이것도 괜찮지 않을까?'",
       "이것저것 아이디어를 낸다",
+      "n",
       "'음 저 주제는 이런 부분이 부족한데...'",
       "다른 사람이 낸 주제를 피드백 해준다",
+      "s",
     ],
 
     [
@@ -51,8 +61,10 @@ const Question = (props) => {
       "이 때 나의 행동은?",
       '"이런 주제는 이 부분에서 안 맞는 것 같아요! 다른 주제로 하죠"',
       "별로 안맞는다고 바로 말한다",
+      "t",
       ' "좋은 주제인데... 이 부분에서 조금 안맞을수도 있을 것 같아요" ',
       "돌려서 말한다",
+      "f",
     ],
 
     [
@@ -61,8 +73,10 @@ const Question = (props) => {
       "이 때 나의 행동은?",
       "''너무 답답해!'",
       "나서서 역할분담을 한다",
+      "j",
       "'이러다가 정해지겠지'",
       "굳이 나서지 않는다",
+      "p",
     ],
 
     [
@@ -71,8 +85,10 @@ const Question = (props) => {
       "이 때 나의 행동은?",
       "'발표가 뭐 어렵다고'",
       "내가 발표하겠다고 한다",
+      "e",
       "'발표 싫어. 다른 역할 할래'",
       "다른 사람이 발표한다고 하길 기다린다",
+      "i",
     ],
 
     [
@@ -81,8 +97,10 @@ const Question = (props) => {
       "나에게 주어진 파트는 언제까지 마칠까?",
       "'얼른 끝내야지'",
       "최대한 빨리 끝내려고 노력한다",
+      "j",
       "'좀 남았으니까...'",
       "중으로 미룬다",
+      "p",
     ],
 
     [
@@ -91,8 +109,10 @@ const Question = (props) => {
       "이 때 내 생각은?",
       "'내가 이걸 못해서 팀플이 망하면 학점이 망하겠지... 어떡하냐?'",
       "미래에 대해 걱정한다",
+      "n",
       "'왜 과제를 제대로 못했지?'",
       "원인에 대해 생각한다",
+      "s",
     ],
 
     [
@@ -101,19 +121,30 @@ const Question = (props) => {
       "이 때 내 생각은?",
       '"너무 부족하게 해오신 것 같아요"',
       "바로 다시 해오라 한다",
+      "t",
       '"이 부분만 조금 수정해주실 수 있나요?"',
       "최대한 돌려서 말한다",
+      "f",
     ],
   ];
+  const [data, setData] = useState([]);
 
-  function nextQuestion() {
+  function firstQuestion() {
+    data.push(testMbti[count][5]);
+    setData(data);
     nextPage();
   }
 
+  function secondClcik() {
+    data.push(testMbti[count][8]);
+    setData(data);
+    nextPage();
+  }
   return (
     <div className="contentsWrap">
       <div className="contents">
         <>
+          {console.log(data)}
           <h1>{testMbti && testMbti[count][0]}</h1>
           <p>
             {testMbti && testMbti[count][1]}
@@ -121,15 +152,15 @@ const Question = (props) => {
             <span> {testMbti && testMbti[count][2]}</span>
           </p>
           <div className="buttonWrap">
-            <button onClick={nextQuestion}>
+            <button onClick={firstQuestion}>
               {testMbti && testMbti[count][3]}
               <br></br>
               <span> {testMbti && testMbti[count][4]}</span>
             </button>
-            <button onClick={nextQuestion}>
-              {testMbti && testMbti[count][5]}
+            <button onClick={secondClcik}>
+              {testMbti && testMbti[count][6]}
               <br></br>
-              <span> {testMbti && testMbti[count][6]}</span>
+              <span> {testMbti && testMbti[count][7]}</span>
             </button>
           </div>
         </>
