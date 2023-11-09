@@ -13,10 +13,6 @@ const MbtiTest = () => {
 
   const navigate = useNavigate();
 
-  function dataCheck(data) {
-    console.log(data);
-    localStorage.setItem(count, data);
-  }
   function prevPage() {
     if (count === 0) {
       navigate(-1);
@@ -41,7 +37,7 @@ const MbtiTest = () => {
         <FontAwesomeIcon className="searchIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
-      <Question nextPage={nextPage} count={count} dataCheck={dataCheck} />
+      <Question nextPage={nextPage} count={count} />
     </div>
   );
 };

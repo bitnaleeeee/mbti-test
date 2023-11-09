@@ -3,7 +3,6 @@ import { useState } from "react";
 const Question = (props) => {
   const { nextPage } = props;
   const { count } = props;
-  const { dataCheck } = props;
 
   const [data, setData] = useState([]);
 
@@ -155,18 +154,21 @@ const Question = (props) => {
   ];
 
   function firstClcik() {
-    data.push(testMbti[count][5]);
+    data.push({
+      [count]: testMbti[count][5],
+    });
     setData(data);
-
     nextPage();
-    dataCheck(data);
   }
 
+  localStorage.setItem("key", JSON.stringify(data));
   function secondClcik() {
-    data.push(testMbti[count][8]);
+    data.push({
+      [count]: testMbti[count][8],
+    });
     setData(data);
     nextPage();
-    dataCheck(data);
+    console.log(data);
   }
 
   return (
