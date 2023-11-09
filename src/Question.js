@@ -3,6 +3,8 @@ import { useState } from "react";
 const Question = (props) => {
   const { nextPage } = props;
   const { count } = props;
+  const { dataCheck } = props;
+
   const [data, setData] = useState([]);
 
   const testMbti = [
@@ -155,19 +157,22 @@ const Question = (props) => {
   function firstClcik() {
     data.push(testMbti[count][5]);
     setData(data);
+
     nextPage();
+    dataCheck(data);
   }
 
   function secondClcik() {
     data.push(testMbti[count][8]);
     setData(data);
     nextPage();
+    dataCheck(data);
   }
+
   return (
     <div className="contentsWrap">
       <div className="contents">
         <>
-          {console.log(data)}
           <h1>{testMbti && testMbti[count][0]}</h1>
           <p>
             {testMbti && testMbti[count][1]}

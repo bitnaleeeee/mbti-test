@@ -18,9 +18,6 @@ const MbtiResult = () => {
     ["/images/INFJ.jpg"],
   ];
 
-  function testImage() {
-    console.log("최종결과");
-  }
   return (
     <>
       <div>
