@@ -129,7 +129,7 @@ const Question = (props) => {
   ];
   const [data, setData] = useState([]);
 
-  function firstQuestion() {
+  function firstClcik() {
     data.push(testMbti[count][5]);
     setData(data);
     nextPage();
@@ -152,7 +152,7 @@ const Question = (props) => {
             <span> {testMbti && testMbti[count][2]}</span>
           </p>
           <div className="buttonWrap">
-            <button onClick={firstQuestion}>
+            <button onClick={firstClcik}>
               {testMbti && testMbti[count][3]}
               <br></br>
               <span> {testMbti && testMbti[count][4]}</span>
