@@ -19,7 +19,7 @@ const MbtiTest = () => {
   }
 
   function nextPage() {
-    if (count === 9) {
+    if (count === 11) {
       navigate("/result");
     }
     setCount(count + 1);

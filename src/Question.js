@@ -3,6 +3,8 @@ import { useState } from "react";
 const Question = (props) => {
   const { nextPage } = props;
   const { count } = props;
+  const [data, setData] = useState([]);
+
   const testMbti = [
     [
       "Q1",
@@ -126,8 +128,29 @@ const Question = (props) => {
       "최대한 돌려서 말한다",
       "f",
     ],
+    [
+      "Q11",
+      "대망의 발표 전 날,",
+      "이 때 나의 모습은?",
+      "'실수하면 어떡하지?'",
+      "여러 걱정에 여러번 연습한다",
+      "j",
+      '"이 정도면 괜찮을 것 같아"',
+      "몇 번 연습하다 미련없이 잔다",
+      "p",
+    ],
+    [
+      "Q12",
+      "대망의 발표 시간, 완벽하게 발표 후 질문 시간을 갖는데, 다소 공격적인 질문이 들어온다.",
+      "이 때 나는?",
+      "'그 부분은 이렇게 대답할 수 있지'",
+      "딱히 타격없이 대답한다",
+      "t",
+      "'뭐지 저 사람 나 싫어하나'",
+      "대답은 하지만 기분이 다운된다",
+      "f",
+    ],
   ];
-  const [data, setData] = useState([]);
 
   function firstClcik() {
     data.push(testMbti[count][5]);
