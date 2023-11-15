@@ -17,11 +17,24 @@ const MbtiResult = () => {
     ["/images/ISTP.jpg"],
     ["/images/INFJ.jpg"],
   ];
+  let resultData = JSON.parse(localStorage.getItem("MBTI"));
+
+  function dataFiltering(nums) {
+    let obj = {};
+
+    for (let i = 0; i < nums.length; i++) {
+      nums[i] in obj ? (obj[nums[i]] += 1) : (obj[nums[i]] = 1);
+    }
+
+    console.log(obj);
+  }
+
+  dataFiltering(resultData);
 
   return (
     <>
       <div>
-        결과페이지지
+        결과페이지지ㄴ
         <img src={resultImg[0]}></img>
       </div>
     </>

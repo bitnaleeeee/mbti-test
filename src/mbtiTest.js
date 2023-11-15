@@ -26,7 +26,6 @@ const MbtiTest = () => {
 
     if (count === 11) {
       localStorage.setItem("MBTI", JSON.stringify(data));
-
       navigate("/result");
     }
     setCount(count + 1);

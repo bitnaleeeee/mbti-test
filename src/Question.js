@@ -153,17 +153,13 @@ const Question = (props) => {
   ];
 
   function firstClcik() {
-    data.push({
-      [count]: testMbti[count][5],
-    });
+    data.push(testMbti[count][5]);
 
     nextPage();
   }
 
   function secondClcik() {
-    data.push({
-      [count]: testMbti[count][8],
-    });
+    data.push(testMbti[count][8]);
 
     nextPage();
   }
