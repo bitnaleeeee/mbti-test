@@ -9,18 +9,24 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./MbtiTest.scss";
 
 const MbtiTest = () => {
+  const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
-
   const navigate = useNavigate();
 
   function prevPage() {
+    setData(data);
+
     if (count === 0) {
       navigate(-1);
     } else setCount(count - 1);
   }
 
   function nextPage() {
+    setData(data);
+
     if (count === 11) {
+      localStorage.setItem("MBTI", JSON.stringify(data));
+
       navigate("/result");
     }
     setCount(count + 1);
@@ -37,7 +43,7 @@ const MbtiTest = () => {
         <FontAwesomeIcon className="searchIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
-      <Question nextPage={nextPage} count={count} />
+      <Question nextPage={nextPage} count={count} data={data} />
     </div>
   );
 };

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import React from "react";
 
 const Question = (props) => {
+  const { data } = props;
   const { nextPage } = props;
   const { count } = props;
-
-  const [data, setData] = useState([]);
 
   const testMbti = [
     [
@@ -157,19 +156,18 @@ const Question = (props) => {
     data.push({
       [count]: testMbti[count][5],
     });
-    setData(data);
+
     nextPage();
   }
 
-  localStorage.setItem("key", JSON.stringify(data));
   function secondClcik() {
     data.push({
       [count]: testMbti[count][8],
     });
-    setData(data);
+
     nextPage();
-    console.log(data);
   }
+  localStorage.setItem("MBTI", JSON.stringify(data));
 
   return (
     <div className="contentsWrap">
