@@ -1,3 +1,6 @@
+let sortData = {};
+let mbtiData = {};
+
 const MbtiResult = () => {
   const resultImg = [
     ["/images/ENFJ.jpg"],
@@ -19,23 +22,18 @@ const MbtiResult = () => {
   ];
   let resultData = JSON.parse(localStorage.getItem("MBTI"));
 
-  let mbtiData = {};
-
   function dataFiltering(nums) {
     for (let i = 0; i < nums.length; i++) {
       nums[i] in mbtiData ? (mbtiData[nums[i]] += 1) : (mbtiData[nums[i]] = 1);
     }
-
-    console.log(mbtiData);
+    sortData = Object.fromEntries(
+      Object.entries(mbtiData).sort((a, b) => a[1] - b[1])
+    );
   }
-
   dataFiltering(resultData);
 
-  function filteringobj() {}
+  console.log(sortData);
 
-  //각 객체의 값에 접근하기
-  // 각 객체의 값을 비교하여 내림차순 정렬
-  // 윗 4개의 키값만 보여주기
   return (
     <>
       <div>
