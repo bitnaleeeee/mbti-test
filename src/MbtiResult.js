@@ -32,7 +32,11 @@ const MbtiResult = () => {
   }
   dataFiltering(resultData);
 
-  console.log(sortData);
+  // sortData: {F: 1, N: 2, T: 2, E: 3, J: 4}
+
+  //뒤에서 4개까지만 남겨두기
+  // 키값 4개만 나오게 하기
+  //결과 이미지와 비교해서 화면 출력하기
 
   return (
     <>
