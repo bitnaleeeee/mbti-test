@@ -27,16 +27,19 @@ const MbtiResult = () => {
       nums[i] in mbtiData ? (mbtiData[nums[i]] += 1) : (mbtiData[nums[i]] = 1);
     }
     sortData = Object.fromEntries(
-      Object.entries(mbtiData).sort((a, b) => a[1] - b[1])
+      Object.entries(mbtiData).sort((a, b) => b[1] - a[1])
     );
   }
   dataFiltering(resultData);
 
-  // sortData: {F: 1, N: 2, T: 2, E: 3, J: 4}
+  function dataProcessing(data) {
+    let arr = Object.keys(data);
+    arr.pop();
+    let str = arr.join("");
+    console.log(str);
+  }
 
-  //뒤에서 4개까지만 남겨두기
-  // 키값 4개만 나오게 하기
-  //결과 이미지와 비교해서 화면 출력하기
+  dataProcessing(sortData);
 
   return (
     <>
