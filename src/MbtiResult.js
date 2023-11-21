@@ -1,49 +1,41 @@
 let sortData = {};
 let mbtiData = {};
-
+let result = [];
+let sliceARR = [];
 const MbtiResult = () => {
+  let callbackData = JSON.parse(localStorage.getItem("MBTI"));
+
+  dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
+  dataProcessing(sortData); //해당 key값(mbti) 오름차순 정렬 후 4개까지만 배열형태로 출력
   const arrResult = [
-    {
-      mbti: "ENFJ",
-      img: "/images/ENFJ.jpg",
-    },
-    {
-      mbti: "ENFP",
-      img: "/images/ENFP.jpg",
-    },
-    {
-      mbti: "ENTJ",
-      img: "/images/ENTJ.jpg",
-    },
-    {
-      mbti: "ENTP",
-      img: "/images/ENTP.jpg",
-    },
-    {
-      mbti: "ESFJ",
-      img: "/images/ESFJ.jpg",
-    },
-
-    {
-      mbti: "ESTJ",
-      img: "/images/ESTJ.jpg",
-    },
-    {
-      mbti: "ESTP",
-      img: "/images/ESTP.jpg",
-    },
-    { mbit: "ENFJ", img: "/images/ENFJ.jpg" },
-    { mbit: "INFJ", img: "/images/INFJ.jpg" },
-    { mbit: "INFP", img: "/images/INFP.jpg" },
-    { mbit: "INTJ", img: "/images/INTJ.jpg" },
-    { mbit: "INTP", img: "/images/INTP.jpg" },
-    { mbit: "ISFJ", img: "/images/ISFJ.jpg" },
-    { mbit: "ISTJ", img: "/images/ISTJ.jpg" },
-    { mbit: "ISTP", img: "/images/ISTP.jpg" },
-    { mbit: "INFJ", img: "/images/INFJ.jpg" },
+    { mbti: ["E", "N", "F", "J"], img: "/images/ENFJ.jpg" },
+    { mbti: ["E", "N", "F", "P"], img: "/images/ENFP.jpg" },
+    { mbti: ["E", "N", "T", "J"], img: "/images/ENTJ.jpg" },
+    { mbti: ["E", "N", "T", "P"], img: "/images/ENTP.jpg" },
+    { mbti: ["E", "S", "F", "J"], img: "/images/ESFJ.jpg" },
+    { mbti: ["E", "S", "F", "P"], img: "/images/ESFP.jpg" },
+    { mbti: ["E", "S", "T", "J"], img: "/images/ESTJ.jpg" },
+    { mbti: ["E", "S", "T", "P"], img: "/images/ESTP.jpg" },
+    { mbti: ["I", "N", "F", "J"], img: "/images/INFJ.jpg" },
+    { mbti: ["I", "N", "F", "P"], img: "/images/INFP.jpg" },
+    { mbti: ["I", "N", "T", "J"], img: "/images/INTJ.jpg" },
+    { mbti: ["I", "N", "T", "P"], img: "/images/INTP.jpg" },
+    { mbti: ["I", "S", "F", "J"], img: "/images/ISFJ.jpg" },
+    { mbti: ["I", "S", "T", "J"], img: "/images/ISTJ.jpg" },
+    { mbti: ["I", "S", "T", "P"], img: "/images/ISTP.jpg" },
+    { mbti: ["I", "N", "F", "J"], img: "/images/INFJ.jpg" },
   ];
-  let resultData = JSON.parse(localStorage.getItem("MBTI"));
 
+  test(arrResult);
+  function test(data) {
+    for (let i = 0; i < data.length; i++) {
+      result = data[i].mbti;
+      console.log(result);
+    }
+  }
+  // mbti 16유형 배열형태로 변환
+
+  test(result, sliceARR);
   function dataFiltering(nums) {
     for (let i = 0; i < nums.length; i++) {
       nums[i] in mbtiData ? (mbtiData[nums[i]] += 1) : (mbtiData[nums[i]] = 1);
@@ -52,15 +44,16 @@ const MbtiResult = () => {
       Object.entries(mbtiData).sort((a, b) => b[1] - a[1])
     );
   }
+  // 유저 선택지 오름차순 정렬
 
   function dataProcessing(data) {
     let arr = Object.keys(data);
-    arr.pop();
-    let str = arr.join("");
-    console.log(str);
+    sliceARR = arr.slice(0, 4);
   }
-  dataFiltering(resultData);
-  dataProcessing(sortData);
+
+  console.log(sliceARR);
+
+  // 유저 mbti 4가지 속성 배열 형태로 변환
 
   return (
     <>
