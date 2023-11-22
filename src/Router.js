@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./Main";
-import MbtiTest from "./MbtiTest";
-import MbtiResult from "./MbtiResult";
+import Login from "./Login";
+import Test from "./Test";
+import Result from "./Result";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/test" element={<MbtiTest />} />
-        <Route path="/result" element={<MbtiResult />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
     </BrowserRouter>
   );

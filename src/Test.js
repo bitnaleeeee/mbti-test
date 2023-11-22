@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import "./MbtiTest.scss";
+import "./Test.scss";
 
-const MbtiTest = () => {
+const Test = () => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
@@ -47,4 +47,4 @@ const MbtiTest = () => {
   );
 };
 
-export default MbtiTest;
+export default Test;

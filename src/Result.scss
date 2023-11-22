@@ -1,0 +1,32 @@
+.resultWrap {
+  width: 500px;
+  height: 700px;
+  margin: auto;
+  background-color: #b2c6d9;
+
+  .resultNav {
+    height: 50px;
+    .mainbackIcon {
+      margin-top: 20px;
+      margin-left: 20px;
+      height: 25px;
+      float: left;
+    }
+    .searchIcon {
+      margin-top: 20px;
+      margin-right: 20px;
+      height: 25px;
+      float: right;
+      cursor: pointer;
+    }
+  }
+
+  .result {
+    background-color: #ffffff;
+    width: 380px;
+    margin-top: 20px;
+    padding: 24px 18px 12px;
+    border-radius: 20px;
+    text-align: center;
+  }
+}

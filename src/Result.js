@@ -1,10 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import "./Result.scss";
+
 let str = "";
 let sortData = {};
 let mbtiData = {};
 let sliceARR = [];
 
-const MbtiResult = () => {
+const Result = () => {
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
@@ -57,14 +63,19 @@ const MbtiResult = () => {
     }
   }
   return (
-    <>
-      <div>
-        결과페이지지
-        {console.log(str)}
+    <div className="resultWrap">
+      <div className="resultNav">
+        <FontAwesomeIcon className="mainbackIcon" icon={faChevronLeft} />
+        <FontAwesomeIcon className="searchIcon" icon={faBars} />
+        <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
+      </div>
+
+      <div className="result">
+        <h2>ㅇ</h2>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
       </div>
-    </>
+    </div>
   );
 };
 
-export default MbtiResult;
+export default Result;
