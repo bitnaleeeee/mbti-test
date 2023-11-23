@@ -12,6 +12,10 @@ let sliceARR = [];
 
 const Result = (props) => {
   const { val } = props;
+
+  localStorage.setItem("NAME", JSON.stringify(val));
+  let userName = JSON.parse(localStorage.getItem("NAME"));
+
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
@@ -70,7 +74,7 @@ const Result = (props) => {
       </div>
 
       <div className="result">
-        <h2> {val}</h2>
+        <h2>조별과제속 {userName}</h2>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
       </div>
     </div>
