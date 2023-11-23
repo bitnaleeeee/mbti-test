@@ -5,6 +5,8 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./Result.scss";
 
+debugger;
+
 let str = "";
 let sortData = {};
 let mbtiData = {};
@@ -12,14 +14,25 @@ let sliceARR = [];
 
 const Result = (props) => {
   const { val } = props;
+  const [data, setData] = useState([]);
+
+  debugger;
 
   useEffect(() => {
-    fetch("/public/data/data.json")
-      .then((response) => response.json())
-      .then((result) => setData(result));
-  }, []);
+    fetch("/data/data.json")
+      .then((response) => {
+        debugger;
+        return response.json();
+      })
 
-  const [data, setData] = useState([]);
+      .then((result) => {
+        console.log(result);
+
+        debugger;
+
+        setData(result);
+      });
+  }, []);
 
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
@@ -80,7 +93,8 @@ const Result = (props) => {
       </div>
       <div className="result">
         <h3>조별 과제 속 {val} 님의 모습은?</h3>
-        <p>나의모습</p> {console.log(data.length > 0 && data[0])}
+        {/* <p>나의모습 {data && data[0]}</p> */}
+
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
       </div>
     </div>
