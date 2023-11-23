@@ -4,12 +4,11 @@ import Login from "./Login";
 import Test from "./Test";
 import Result from "./Result";
 
-// let val = "";
 const Router = () => {
-  const [val, setVal] = useState("");
-  function getUserName(a) {
-    setVal(a);
-    // console.log(val);
+  const [val, setVale] = useState("");
+
+  function getUserName(val) {
+    setVale(val);
   }
   return (
     <BrowserRouter>
