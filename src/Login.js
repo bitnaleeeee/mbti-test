@@ -7,13 +7,14 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Login.scss";
 
-const Login = () => {
+const Login = (props) => {
+  const { getUserName } = props;
   const [name, setName] = useState("");
-
   const navigate = useNavigate();
 
   function loginCheck(e) {
     setName(e.target.value);
+    getUserName(e.target.value);
   }
 
   const goToTest = () => {

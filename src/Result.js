@@ -10,7 +10,9 @@ let sortData = {};
 let mbtiData = {};
 let sliceARR = [];
 
-const Result = () => {
+const Result = (props) => {
+  const { val } = props;
+  console.log(val);
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
@@ -71,7 +73,7 @@ const Result = () => {
       </div>
 
       <div className="result">
-        <h2>ㅇ</h2>
+        <h2>d{val}</h2>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
       </div>
     </div>
