@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -13,13 +13,19 @@ let sliceARR = [];
 const Result = (props) => {
   const { val } = props;
 
-  localStorage.setItem("NAME", JSON.stringify(val));
-  let userName = JSON.parse(localStorage.getItem("NAME"));
+  useEffect(() => {
+    fetch("/public/data/data.json")
+      .then((response) => response.json())
+      .then((result) => setData(result));
+  }, []);
+
+  const [data, setData] = useState([]);
 
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
   dataProcessing(sortData); //해당 key값(mbti) 오름차순 정렬 후 4개까지만 배열형태로 출력
+
   const arrmbti = [
     ["E", "N", "F", "J"],
     ["E", "N", "F", "P"],
@@ -72,9 +78,9 @@ const Result = (props) => {
         <FontAwesomeIcon className="searchIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
-
       <div className="result">
-        <h2>조별과제속 {userName}</h2>
+        <h3>조별 과제 속 {val} 님의 모습은?</h3>
+        <p>나의모습</p> {console.log(data.length > 0 && data[0])}
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
       </div>
     </div>
