@@ -9,7 +9,7 @@ let str = "";
 let sortData = {};
 let mbtiData = {};
 let sliceARR = [];
-
+let mapData = [];
 const Result = (props) => {
   const { val } = props;
   const [data, setData] = useState([]);
@@ -20,7 +20,6 @@ const Result = (props) => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
         setData(result);
       });
   }, []);
@@ -78,6 +77,22 @@ const Result = (props) => {
   function urlcopy() {
     alert("공유 링크가 복사되었습니다!");
   }
+
+  console.log(data.length);
+
+  function dataMapArr(data) {
+    for (let i = 0; i < data.length; i++) {
+      let sameData = data[i].answer0;
+      if (str === sameData) {
+        console.log(data[i]);
+
+        // console.log(mapData);
+      } else {
+        console.log("난안ㅁ");
+      }
+    }
+  }
+  dataMapArr(data);
   return (
     <div className="resultWrap">
       <div className="resultNav">
