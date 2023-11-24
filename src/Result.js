@@ -75,6 +75,9 @@ const Result = (props) => {
       }
     }
   }
+  function urlcopy() {
+    alert("공유 링크가 복사되었습니다!");
+  }
   return (
     <div className="resultWrap">
       <div className="resultNav">
@@ -102,7 +105,7 @@ const Result = (props) => {
           </ul>
         </div>
       </div>
-      <button className="urlbutton" type="submit">
+      <button className="urlbutton" type="submit" onClick={urlcopy}>
         결과 공유하기
       </button>
       <button className="mainbutton" type="submit">
