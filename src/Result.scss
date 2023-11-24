@@ -1,6 +1,6 @@
 .resultWrap {
   width: 500px;
-  height: 700px;
+  height: 100%;
   margin: auto;
   background-color: #b2c6d9;
 
@@ -28,11 +28,76 @@
     padding: 24px 18px 12px;
     border-radius: 20px;
     text-align: center;
+    margin: auto;
+    margin-top: 20px;
 
-    .h2 {
+    h3:first-child {
+      border-radius: 20px;
       color: #a7bbcb;
       margin: 10px auto;
       width: 360px;
     }
+    h3:nth-child(2) {
+      border-radius: 20px;
+      color: #2b2b2b;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 8px auto 2px;
+      width: 360px;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 auto 8px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    > p {
+      color: #4a5b6a;
+      font-weight: 700;
+      font-size: 24px;
+      margin: 0 auto 18px;
+    }
+    > img {
+      width: 200px;
+      aspect-ratio: auto 200 / 200;
+      height: 200px;
+    }
+
+    .info {
+      color: #727272;
+      font-size: 14px;
+      line-height: 24px;
+      padding: 20px;
+      text-align: justify;
+      width: 320px;
+    }
+
+    span {
+      font-size: 14px;
+      color: #4a5b6a;
+      font-weight: 800;
+    }
+    li {
+      color: #727272;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  > button {
+    cursor: pointer;
+    margin: 0 90px;
+    background-color: #fff;
+    border: none;
+    width: 300px;
+    font-size: 16px;
+    height: 48px;
+    border-radius: 20px;
+  }
+  .urlbutton {
+    margin-top: 40px;
+  }
+  .mainbutton {
+    margin-top: 10px;
+    margin-bottom: 40px;
   }
 }

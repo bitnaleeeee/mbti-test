@@ -5,8 +5,6 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./Result.scss";
 
-debugger;
-
 let str = "";
 let sortData = {};
 let mbtiData = {};
@@ -16,20 +14,13 @@ const Result = (props) => {
   const { val } = props;
   const [data, setData] = useState([]);
 
-  debugger;
-
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
-        debugger;
         return response.json();
       })
-
       .then((result) => {
         console.log(result);
-
-        debugger;
-
         setData(result);
       });
   }, []);
@@ -93,10 +84,30 @@ const Result = (props) => {
       </div>
       <div className="result">
         <h3>조별 과제 속 {val} 님의 모습은?</h3>
-        {/* <p>나의모습 {data && data[0]}</p> */}
-
+        <h3>{data[0] && data[0].answer1}</h3>
+        <h2>{data[0] && data[0].answer2}</h2>
+        <p>{data[0] && data[0].answer0}</p>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
+
+        <div className="info">
+          <span>{data[0] && data[0].answer3}</span>
+          <ul>
+            <li>{data[0] && data[0].answer4}</li>
+            <li>{data[0] && data[0].answer5}</li>
+            <li>{data[0] && data[0].answer6}</li>
+            <li>{data[0] && data[0].answer7}</li>
+            <li>{data[0] && data[0].answer8}</li>
+            <li>{data[0] && data[0].answer9}</li>
+            <li>{data[0] && data[0].answer10}</li>
+          </ul>
+        </div>
       </div>
+      <button className="urlbutton" type="submit">
+        결과 공유하기
+      </button>
+      <button className="mainbutton" type="submit">
+        다시 테스트하기
+      </button>
     </div>
   );
 };
