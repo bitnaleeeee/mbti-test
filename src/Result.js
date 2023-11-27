@@ -9,7 +9,8 @@ let str = "";
 let sortData = {};
 let mbtiData = {};
 let sliceARR = [];
-let mapData = [];
+let valData = [];
+
 const Result = (props) => {
   const { val } = props;
   const [data, setData] = useState([]);
@@ -74,25 +75,23 @@ const Result = (props) => {
       }
     }
   }
+  // 일치하는 mbti 유형 string으로 저장
   function urlcopy() {
     alert("공유 링크가 복사되었습니다!");
   }
-
-  console.log(data.length);
 
   function dataMapArr(data) {
     for (let i = 0; i < data.length; i++) {
       let sameData = data[i].answer0;
       if (str === sameData) {
-        console.log(data[i]);
-
-        // console.log(mapData);
-      } else {
-        console.log("난안ㅁ");
+        valData = data[i];
       }
     }
   }
   dataMapArr(data);
+
+  // mbti 일치하는 설명 글 매칭 함수
+  console.log(valData);
   return (
     <div className="resultWrap">
       <div className="resultNav">
@@ -102,21 +101,21 @@ const Result = (props) => {
       </div>
       <div className="result">
         <h3>조별 과제 속 {val} 님의 모습은?</h3>
-        <h3>{data[0] && data[0].answer1}</h3>
-        <h2>{data[0] && data[0].answer2}</h2>
-        <p>{data[0] && data[0].answer0}</p>
+        <h3>{valData && valData.answer1}</h3>
+        <h2>{valData && valData.answer2}</h2>
+        <p>{valData && valData.answer0}</p>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
 
         <div className="info">
-          <span>{data[0] && data[0].answer3}</span>
+          <span>{valData && valData.answer3}</span>
           <ul>
-            <li>{data[0] && data[0].answer4}</li>
-            <li>{data[0] && data[0].answer5}</li>
-            <li>{data[0] && data[0].answer6}</li>
-            <li>{data[0] && data[0].answer7}</li>
-            <li>{data[0] && data[0].answer8}</li>
-            <li>{data[0] && data[0].answer9}</li>
-            <li>{data[0] && data[0].answer10}</li>
+            <li>{valData && valData.answer4}</li>
+            <li>{valData && valData.answer5}</li>
+            <li>{valData && valData.answer6}</li>
+            <li>{valData && valData.answer7}</li>
+            <li>{valData && valData.answer8}</li>
+            <li>{valData && valData.answer9}</li>
+            <li>{valData && valData.answer10}</li>
           </ul>
         </div>
       </div>
