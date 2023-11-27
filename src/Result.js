@@ -82,7 +82,7 @@ const Result = (props) => {
 
   function dataMapArr(data) {
     for (let i = 0; i < data.length; i++) {
-      let sameData = data[i].answer0;
+      let sameData = data[i].mbti;
       if (str === sameData) {
         valData = data[i];
       }
@@ -101,21 +101,19 @@ const Result = (props) => {
       </div>
       <div className="result">
         <h3>조별 과제 속 {val} 님의 모습은?</h3>
-        <h3>{valData && valData.answer1}</h3>
-        <h2>{valData && valData.answer2}</h2>
-        <p>{valData && valData.answer0}</p>
+
+        <h3>{valData && valData.title}</h3>
+        <h2>{valData && valData.subTitle}</h2>
+        <p>{valData && valData.mbti}</p>
         <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
 
         <div className="info">
-          <span>{valData && valData.answer3}</span>
+          <span>{valData && valData.tag}</span>
           <ul>
-            <li>{valData && valData.answer4}</li>
-            <li>{valData && valData.answer5}</li>
-            <li>{valData && valData.answer6}</li>
-            <li>{valData && valData.answer7}</li>
-            <li>{valData && valData.answer8}</li>
-            <li>{valData && valData.answer9}</li>
-            <li>{valData && valData.answer10}</li>
+            {valData.info &&
+              valData.info.map((item, idx) => {
+                return <li key={idx}>{item}</li>;
+              })}
           </ul>
         </div>
       </div>
