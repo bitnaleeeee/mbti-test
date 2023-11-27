@@ -7,15 +7,14 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Login.scss";
 
-const Login = (props) => {
-  const { getUserName } = props;
+const Login = () => {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
   function loginCheck(e) {
     setName(e.target.value);
-    getUserName(e.target.value);
   }
+  localStorage.setItem("NAME", JSON.stringify(name));
 
   const goToTest = () => {
     name.length > 0 ? navigate("/test") : alert("이름을 입력해주세요");

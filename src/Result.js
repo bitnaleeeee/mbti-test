@@ -11,9 +11,9 @@ let mbtiData = {};
 let sliceARR = [];
 let valData = [];
 
-const Result = (props) => {
-  const { val } = props;
+const Result = () => {
   const [data, setData] = useState([]);
+  let valName = JSON.parse(localStorage.getItem("NAME"));
 
   useEffect(() => {
     fetch("/data/data.json")
@@ -91,7 +91,6 @@ const Result = (props) => {
   dataMapArr(data);
 
   // mbti 일치하는 설명 글 매칭 함수
-  console.log(valData);
   return (
     <div className="resultWrap">
       <div className="resultNav">
@@ -100,7 +99,7 @@ const Result = (props) => {
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
       <div className="result">
-        <h3>조별 과제 속 {val} 님의 모습은?</h3>
+        <h3>조별 과제 속 {valName} 님의 모습은?</h3>
 
         <h3>{valData && valData.title}</h3>
         <h2>{valData && valData.subTitle}</h2>
