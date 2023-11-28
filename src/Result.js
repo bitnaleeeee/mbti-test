@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +18,9 @@ const Result = () => {
   let valName = JSON.parse(localStorage.getItem("NAME"));
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location);
 
   function goToMain() {
     navigate("/");
@@ -82,10 +86,8 @@ const Result = () => {
       }
     }
   }
+
   // 일치하는 mbti 유형 string으로 저장
-  function urlcopy() {
-    alert("공유 링크가 복사되었습니다!");
-  }
 
   function dataMapArr(data) {
     for (let i = 0; i < data.length; i++) {
@@ -96,6 +98,14 @@ const Result = () => {
     }
   }
   dataMapArr(data);
+  const handleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("공유링크가 복사되었습니다!");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // mbti 일치하는 설명 글 매칭 함수
   return (
@@ -123,7 +133,13 @@ const Result = () => {
           </ul>
         </div>
       </div>
-      <button className="urlbutton" type="submit" onClick={urlcopy}>
+      <button
+        className="urlbutton"
+        type="submit"
+        onClick={() =>
+          handleCopyClipBoard(`mbti-test-alpha.vercel.app${location.pathname}`)
+        }
+      >
         결과 공유하기
       </button>
       <button className="mainbutton" type="submit" onClick={goToMain}>
