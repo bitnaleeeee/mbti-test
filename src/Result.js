@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +20,9 @@ const Result = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  let { params } = useParams();
+  console.log(params);
 
   function goToMain() {
     navigate("/");
@@ -135,7 +139,9 @@ const Result = () => {
         className="urlbutton"
         type="submit"
         onClick={() =>
-          handleCopyClipBoard(`mbti-test-alpha.vercel.app${location.pathname}`)
+          handleCopyClipBoard(
+            `https://mbti-test-alpha.vercel.app${location.pathname}`
+          )
         }
       >
         결과 공유하기
