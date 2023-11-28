@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,12 @@ let valData = [];
 const Result = () => {
   const [data, setData] = useState([]);
   let valName = JSON.parse(localStorage.getItem("NAME"));
+
+  const navigate = useNavigate();
+
+  function goToMain() {
+    navigate("/");
+  }
 
   useEffect(() => {
     fetch("/data/data.json")
@@ -119,7 +126,7 @@ const Result = () => {
       <button className="urlbutton" type="submit" onClick={urlcopy}>
         결과 공유하기
       </button>
-      <button className="mainbutton" type="submit">
+      <button className="mainbutton" type="submit" onClick={goToMain}>
         다시 테스트하기
       </button>
     </div>
