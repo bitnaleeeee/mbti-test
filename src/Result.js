@@ -20,8 +20,6 @@ const Result = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location);
-
   function goToMain() {
     navigate("/");
   }
