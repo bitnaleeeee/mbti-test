@@ -9,11 +9,9 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./Test.scss";
 
 const Test = () => {
-  // ToDo
-  // 1. 결과물 str에 맞게 라우팅 주소가 바뀌고, 그 주소로 이동되어야 함
-  //2. ex. str> istj 일때 주소 link to /istj
-  //3. test화면에서 11이 넘어갈떄, lik to 해당 /str으로 주소가 넘어감
-  //4.해당 파라미터 str 주소에서, 해당 str 데이터 값이 보여짐
+  //test 에서 navigate /id 로 설정해줘야함
+  // result화면에서 id 값으로 뿌려줄때 그 값에 맞는 링크 id 주소가 있어야 함ㄴㄴ 라우터의 id에 맞게 result내에서 id로 뿌려주면 됨
+  // router에서 result에 /id로 설정해줘야함
 
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);

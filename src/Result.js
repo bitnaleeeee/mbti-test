@@ -29,6 +29,12 @@ const Result = () => {
         return response.json();
       })
       .then((result) => {
+        // TODO
+
+        // const urlParams = new URL(window.location.href).searchParams;
+        // const name = urlParams.get("mbti");
+        // console.log(name);
+
         setData(result);
       });
   }, []);
@@ -85,6 +91,19 @@ const Result = () => {
   }
 
   function infoAlert() {
+    var url = "";
+    var textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    url = window.document.location.href;
+
+    url = url + "?mbti=" + str;
+
+    textarea.value = url;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    debugger;
     alert("공유링크가 복사되었습니다!");
   }
 

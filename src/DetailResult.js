@@ -1,16 +1,28 @@
 import React from "react";
+
 import "./Result.scss";
 
 let valData = [];
 
 const DetailResult = (props) => {
   const { data } = props;
-  const { str } = props;
+  let { str } = props;
+
   let valName = JSON.parse(localStorage.getItem("NAME"));
 
   function dataMapArr(data) {
     for (let i = 0; i < data.length; i++) {
       let sameData = data[i].mbti;
+
+      // 유알엘 값 가져오기
+      const urlParams = new URL(window.location.href).searchParams;
+      const name = urlParams.get("mbti");
+
+      if (name) {
+        let val = name.toUpperCase();
+        str = val;
+      }
+
       if (str === sameData) {
         valData = data[i];
       }
