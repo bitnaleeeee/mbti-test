@@ -6,16 +6,15 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./Result.scss";
+import DetailResult from "./DetailResult";
 
 let str = "";
 let sortData = {};
 let mbtiData = {};
 let sliceARR = [];
-let valData = [];
 
 const Result = () => {
   const [data, setData] = useState([]);
-  let valName = JSON.parse(localStorage.getItem("NAME"));
 
   const navigate = useNavigate();
   // const location = useLocation();
@@ -85,26 +84,6 @@ const Result = () => {
     }
   }
 
-  // 일치하는 mbti 유형 string으로 저장
-
-  function dataMapArr(data) {
-    for (let i = 0; i < data.length; i++) {
-      let sameData = data[i].mbti;
-      if (str === sameData) {
-        valData = data[i];
-      }
-    }
-  }
-  dataMapArr(data);
-  // const handleCopyClipBoard = async (text) => {
-  //   try {
-  //     await navigator.clipboard.writeText(text);
-  //     alert("공유링크가 복사되었습니다!");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
   function infoAlert() {
     alert("공유링크가 복사되었습니다!");
   }
@@ -117,34 +96,8 @@ const Result = () => {
         <FontAwesomeIcon className="searchIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
-      <div className="result">
-        <h3>조별 과제 속 {valName} 님의 모습은?</h3>
-
-        <h3>{valData && valData.title}</h3>
-        <h2>{valData && valData.subTitle}</h2>
-        <p>{valData && valData.mbti}</p>
-        <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
-
-        <div className="info">
-          <span>{valData && valData.tag}</span>
-          <ul>
-            {valData.info &&
-              valData.info.map((item, idx) => {
-                return <li key={idx}>{item}</li>;
-              })}
-          </ul>
-        </div>
-      </div>
-      <button
-        className="urlbutton"
-        type="submit"
-        onClick={infoAlert}
-        // onClick={() =>
-        //   handleCopyClipBoard(
-        //     `https://mbti-test-alpha.vercel.app${location.pathname}`
-        //   )
-        // }
-      >
+      <DetailResult data={data} str={str} />
+      <button className="urlbutton" type="submit" onClick={infoAlert}>
         결과 공유하기
       </button>
       <button className="mainbutton" type="submit" onClick={goToMain}>
