@@ -105,6 +105,10 @@ const Result = () => {
   //   }
   // };
 
+  function infoAlert() {
+    alert("공유링크가 복사되었습니다!");
+  }
+
   // mbti 일치하는 설명 글 매칭 함수
   return (
     <div className="resultWrap">
@@ -131,17 +135,18 @@ const Result = () => {
           </ul>
         </div>
       </div>
-      {/* <button
+      <button
         className="urlbutton"
         type="submit"
-        onClick={() =>
-          handleCopyClipBoard(
-            `https://mbti-test-alpha.vercel.app${location.pathname}`
-          )
-        }
+        onClick={infoAlert}
+        // onClick={() =>
+        //   handleCopyClipBoard(
+        //     `https://mbti-test-alpha.vercel.app${location.pathname}`
+        //   )
+        // }
       >
         결과 공유하기
-      </button> */}
+      </button>
       <button className="mainbutton" type="submit" onClick={goToMain}>
         다시 테스트하기
       </button>
