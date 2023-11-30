@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useSearchParams } from "react-router-dom";
 import "./Result.scss";
 
 let valData = [];
@@ -7,20 +7,40 @@ let valData = [];
 const DetailResult = (props) => {
   const { data } = props;
   let { str } = props;
-
   let valName = JSON.parse(localStorage.getItem("NAME"));
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  let queryValue = searchParams.get("mbti");
+  // console.log(queryValue);
+  // console.log(str);
+
+  // function queryTest() {
+  //   if (queryValue) {
+  //     console.log("있다");
+  //   } else {
+  //     console.log("없다");
+  //   }
+  // }
 
   function dataMapArr(data) {
+    console.log(data);
+    // queryTest();
     for (let i = 0; i < data.length; i++) {
       let sameData = data[i].mbti;
 
       if (str === sameData) {
         valData = data[i];
+
+        debugger;
+      } else {
+        if (queryValue === sameData) {
+          valData = data[i];
+        }
       }
     }
   }
+
   dataMapArr(data);
-  console.log(str);
   // mbti 일치하는 설명 글 매칭 함수
   return (
     <div className="result">
