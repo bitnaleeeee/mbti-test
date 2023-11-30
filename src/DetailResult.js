@@ -14,21 +14,13 @@ const DetailResult = (props) => {
     for (let i = 0; i < data.length; i++) {
       let sameData = data[i].mbti;
 
-      // 유알엘 값 가져오기
-      const urlParams = new URL(window.location.href).searchParams;
-      const name = urlParams.get("mbti");
-
-      if (name) {
-        let val = name.toUpperCase();
-        str = val;
-      }
-
       if (str === sameData) {
         valData = data[i];
       }
     }
   }
   dataMapArr(data);
+  console.log(str);
   // mbti 일치하는 설명 글 매칭 함수
   return (
     <div className="result">

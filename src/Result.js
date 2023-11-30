@@ -39,6 +39,8 @@ const Result = () => {
       });
   }, []);
 
+  let locationUrl = window.location.href;
+  locationUrl = locationUrl + `?mbti=` + str;
   let callbackData = JSON.parse(localStorage.getItem("MBTI"));
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
@@ -90,22 +92,15 @@ const Result = () => {
     }
   }
 
-  function infoAlert() {
-    var url = "";
-    var textarea = document.createElement("textarea");
-    document.body.appendChild(textarea);
-    url = window.document.location.href;
+  const handleCopyClipBoard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
 
-    url = url + "?mbti=" + str;
-
-    textarea.value = url;
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    debugger;
-    alert("공유링크가 복사되었습니다!");
-  }
+      alert("복사 성공!");
+    } catch (error) {
+      alert("복사 실패!");
+    }
+  };
 
   // mbti 일치하는 설명 글 매칭 함수
   return (
@@ -116,7 +111,11 @@ const Result = () => {
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
       <DetailResult data={data} str={str} />
-      <button className="urlbutton" type="submit" onClick={infoAlert}>
+      <button
+        className="urlbutton"
+        type="submit"
+        onClick={() => handleCopyClipBoard(locationUrl)}
+      >
         결과 공유하기
       </button>
       <button className="mainbutton" type="submit" onClick={goToMain}>
