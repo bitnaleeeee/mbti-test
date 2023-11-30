@@ -11,27 +11,14 @@ const DetailResult = (props) => {
   let [searchParams, setSearchParams] = useSearchParams();
 
   let queryValue = searchParams.get("mbti");
-  // console.log(queryValue);
-  // console.log(str);
-
-  // function queryTest() {
-  //   if (queryValue) {
-  //     console.log("있다");
-  //   } else {
-  //     console.log("없다");
-  //   }
-  // }
 
   function dataMapArr(data) {
     console.log(data);
-    // queryTest();
     for (let i = 0; i < data.length; i++) {
       let sameData = data[i].mbti;
 
       if (str === sameData) {
         valData = data[i];
-
-        debugger;
       } else {
         if (queryValue === sameData) {
           valData = data[i];
@@ -39,7 +26,6 @@ const DetailResult = (props) => {
       }
     }
   }
-
   dataMapArr(data);
   // mbti 일치하는 설명 글 매칭 함수
   return (
@@ -49,7 +35,7 @@ const DetailResult = (props) => {
       <h3>{valData && valData.title}</h3>
       <h2>{valData && valData.subTitle}</h2>
       <p>{valData && valData.mbti}</p>
-      <img src={`./images/${str}.jpg`} alt="테스트결과이미지"></img>
+      <img src={`./images/${valData.mbti}.jpg`} alt="테스트결과이미지"></img>
 
       <div className="info">
         <span>{valData && valData.tag}</span>
