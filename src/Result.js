@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import "./Result.scss";
 import DetailResult from "./DetailResult";
+import "./Result.scss";
 
 let str = "";
 let sortData = {};
@@ -17,7 +16,6 @@ const Result = () => {
   const [data, setData] = useState([]);
 
   const navigate = useNavigate();
-  // const location = useLocation();
 
   function goToMain() {
     navigate("/");
@@ -29,12 +27,6 @@ const Result = () => {
         return response.json();
       })
       .then((result) => {
-        // TODO
-
-        // const urlParams = new URL(window.location.href).searchParams;
-        // const name = urlParams.get("mbti");
-        // console.log(name);
-
         setData(result);
       });
   }, []);
@@ -45,25 +37,6 @@ const Result = () => {
 
   dataFiltering(callbackData); //결과값 별로 몇점인지 체크하여 오름차순 정렬
   dataProcessing(sortData); //해당 key값(mbti) 오름차순 정렬 후 4개까지만 배열형태로 출력
-
-  const arrmbti = [
-    ["E", "N", "F", "J"],
-    ["E", "N", "F", "P"],
-    ["E", "N", "T", "J"],
-    ["E", "N", "T", "P"],
-    ["E", "S", "F", "J"],
-    ["E", "S", "F", "P"],
-    ["E", "S", "T", "J"],
-    ["E", "S", "T", "P"],
-    ["I", "N", "F", "J"],
-    ["I", "N", "F", "P"],
-    ["I", "N", "T", "J"],
-    ["I", "N", "T", "P"],
-    ["I", "S", "F", "J"],
-    ["I", "S", "F", "P"],
-    ["I", "S", "T", "J"],
-    ["I", "S", "T", "P"],
-  ];
 
   function dataFiltering(nums) {
     for (let i = 0; i < nums.length; i++) {
@@ -91,18 +64,19 @@ const Result = () => {
       }
     }
   }
+  // mbti 일치하는 설명 글 매칭 함수
 
   const handleCopyClipBoard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
 
-      alert("복사 성공!");
+      alert("링크가 복사되었습니다!");
     } catch (error) {
       alert("복사 실패!");
     }
   };
+  // 링크복사 함수
 
-  // mbti 일치하는 설명 글 매칭 함수
   return (
     <div className="resultWrap">
       <div className="resultNav">
@@ -124,5 +98,24 @@ const Result = () => {
     </div>
   );
 };
+
+const arrmbti = [
+  ["E", "N", "F", "J"],
+  ["E", "N", "F", "P"],
+  ["E", "N", "T", "J"],
+  ["E", "N", "T", "P"],
+  ["E", "S", "F", "J"],
+  ["E", "S", "F", "P"],
+  ["E", "S", "T", "J"],
+  ["E", "S", "T", "P"],
+  ["I", "N", "F", "J"],
+  ["I", "N", "F", "P"],
+  ["I", "N", "T", "J"],
+  ["I", "N", "T", "P"],
+  ["I", "S", "F", "J"],
+  ["I", "S", "F", "P"],
+  ["I", "S", "T", "J"],
+  ["I", "S", "T", "P"],
+];
 
 export default Result;
