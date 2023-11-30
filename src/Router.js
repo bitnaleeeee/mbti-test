@@ -1,8 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Login from "./Login";
-import Test from "./Test";
-import Result from "./Result";
+import Login from "./page/Login";
+import Test from "./page/Test";
+import Result from "./page/Result";
 
 const Router = () => {
   return (
