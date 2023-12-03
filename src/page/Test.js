@@ -43,7 +43,7 @@ const Test = () => {
           icon={faChevronLeft}
           onClick={prevPage}
         />
-        <FontAwesomeIcon className="searchIcon" icon={faBars} />
+        <FontAwesomeIcon className="menuIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
       <Question nextPage={nextPage} count={count} data={data} />

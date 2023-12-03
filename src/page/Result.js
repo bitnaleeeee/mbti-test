@@ -81,7 +81,7 @@ const Result = () => {
     <div className="resultWrap">
       <div className="resultNav">
         <FontAwesomeIcon className="mainbackIcon" icon={faChevronLeft} />
-        <FontAwesomeIcon className="searchIcon" icon={faBars} />
+        <FontAwesomeIcon className="menuIcon" icon={faBars} />
         <FontAwesomeIcon className="searchIcon" icon={faMagnifyingGlass} />
       </div>
       <DetailResult data={data} str={str} />

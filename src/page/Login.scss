@@ -1,41 +1,18 @@
 .mainWrap {
-  max-width: 500px;
-  width: 100%;
-  height: 700px;
-  margin: auto;
-  background-color: #b2c6d9;
-
-  .mainNav {
-    height: 50px;
-    .mainbackIcon {
-      margin-top: 20px;
-      margin-left: 20px;
-      height: 25px;
-      float: left;
-    }
-    .searchIcon {
-      margin-top: 20px;
-      margin-right: 20px;
-      height: 25px;
-      float: right;
-      cursor: pointer;
-    }
-  }
-
   .mainContent {
+    padding: 0 20px;
     text-align: center;
-    margin: 0 80px 0 80px;
 
     .title {
-      margin-top: 150px;
+      font-size: 25px;
+      font-weight: bold;
     }
     .subTitle {
-      font-size: 16px;
-      color: grey;
+      margin-top: 20px;
+      color: #666;
       line-height: 25px;
     }
   }
-
   .submitButton {
     margin-top: 100px;
     padding: 0 10px;
@@ -45,11 +22,15 @@
       width: 100%;
       max-width: 300px;
       font-size: 16px;
-      border-radius: 20px;
+      border-radius: 10px;
       border: none;
       margin: 0 auto;
       display: block;
       text-align: center;
+      outline: none;
+      &:focus::placeholder {
+        font-size: 0;
+      }
     }
     .testButton {
       margin-top: 10px;
@@ -57,7 +38,7 @@
       width: 100%;
       max-width: 300px;
       font-size: 16px;
-      border-radius: 20px;
+      border-radius: 8px;
       border: none;
       display: block;
       text-align: center;
