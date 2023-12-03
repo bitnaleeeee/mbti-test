@@ -71,13 +71,14 @@
     display: block;
     cursor: pointer;
     margin: 0 auto;
-    background-color: #fff;
     border: none;
     max-width: 300px;
+    padding: 0;
     width: 100%;
     font-size: 16px;
     height: 48px;
     border-radius: 10px;
+    color: #333;
   }
   .urlbutton {
     margin-top: 40px;

@@ -2,7 +2,6 @@
   .contentsWrap {
     display: flex;
     justify-content: center;
-    padding: 0 20px;
 
     .contents {
       width: 100%;
@@ -47,6 +46,7 @@
         border-radius: 10px;
         border: none;
         font-size: 15px;
+        color: #333;
       }
       button:hover {
         background-color: #fee501;
