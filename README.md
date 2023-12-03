@@ -1,5 +1,7 @@
 ## 조별 과제로 알아보는 나의 모습은?
 
+개인프로젝트<br>
+제작 기간 : 2주<br>
 Vercel로 배포했습니다
 
 ### 배포링크 - https://mbti-test-alpha.vercel.app/
