@@ -1,7 +1,9 @@
 ## 조별 과제로 알아보는 나의 모습은?
 
-개인프로젝트<br>
-제작 기간 : 2주<br>
+개인 프로젝트
+
+제작기간: 약 2주
+
 Vercel로 배포했습니다
 
 ### 배포링크 - https://mbti-test-alpha.vercel.app/
@@ -9,7 +11,6 @@ Vercel로 배포했습니다
 ### STACK
 
 <img src="https://img.shields.io/badge/React.js-58c3cc?style=flat-square&logo=React&logoColor=white"/><img alt="SASS" src ="https://img.shields.io/badge/SASS-CC6699.svg?&style=flat-square&logo=Sass&logoColor=white"/><img src="https://img.shields.io/badge/git-F05032?style=flat-square&logo=git&logoColor=white">
-
 
 ## 주요 기능
 - 로그인 유효성 검사 함수에 따른 화면 구현
