@@ -6,6 +6,11 @@
 ## 배포 링크
 체험해보기: [MBTI Test](https://mbti-test-alpha.vercel.app/)
 
+
+### 배포화면
+
+![Image](https://github.com/user-attachments/assets/5322dec7-3d3d-4ebe-9b89-02d36265a29e)
+
 ### 사용 기술 스택
 <img src="https://img.shields.io/badge/React.js-58c3cc?style=flat-square&logo=React&logoColor=white"/><img alt="SASS" src ="https://img.shields.io/badge/SASS-CC6699.svg?&style=flat-square&logo=Sass&logoColor=white"/><img src="https://img.shields.io/badge/git-F05032?style=flat-square&logo=git&logoColor=white">
 
